@@ -19,7 +19,7 @@ spring:
 ```
 
 ```sql
-
+/*test.sql*/
 SELECT 1;
 
 ```
