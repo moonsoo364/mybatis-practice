@@ -43,7 +43,7 @@ Mybatis에서 SELECT 절의 결과를 객체로 매핑할 경우 SQL이 담기�
 List<User> findAllUsers();
 ```
 
-## 3. 동적 쿼리
+### 3. 동적 쿼리
 
 Mybatis 의 경우 XML에서 `<if>`태그를 이용하여 동적 쿼리를 작성할 수 있다.  데이터베이스의 모든 컬럼을 동적쿼리로 처리해야 하는 경우 SQL 문장이 길어지는 단점이 있다. JPA 경우에는 Entity 클래스의 필드에 `@DynamicUpdate`  어노테이션을 이용하여 간단하게 처리할 수 있다.  `@DynamicUpdate` 어노테이션의 경우에는 변경된 필드를 대상으로  Update문을 실행하기 때문에 완전히 동일하진 않다. 
 
