@@ -1,8 +1,12 @@
 spring:
-  datasource: ${DB_URL}
-  username: ${DB_USER}
-  password: ${DB_PASSWORD}
-  driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    servlet:
+      path: /api/v1
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml

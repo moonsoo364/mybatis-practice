@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.stock.mapper.StockMapper">
+   <resultMap id = "StockResultMap" type="org.example.stock.domain.Stock">
+       <id column="STOCK_ID" property="stockId"/>
+       <result column="STOCK_NAME" property="stockName"/>
+       <result column="STOCK_EXCHANGE" property="stockExchange"/>
+       <result column="CURRENT_PRICE" property="currentPrice"/>
+       <result column="CREATED_DATE" property="createdDate"/>
+   </resultMap>
+
+    <select id="findById" parameterType="String" resultMap="StockResultMap">
+        SELECT * FROM STOCK WHERE ID = #{stockId}
+    </select>
+
+    <select id="findAll" resultMap="StockResultMap">
+        SELECT * FROM STOCK
+    </select>
+
+    <insert id="insert" parameterType="org.example.stock.domain.Stock">
+        INSERT INTO
+            STOCK
+            (
+                STOCK_ID,
+                STOCK_NAME,
+                STOCK_EXCHANGE,
+                CURRENT_PRICE,
+                CREATED_DATE
+            )
+        VALUES
+            (
+                #{stockId},
+                #{stockName},
+                #{stockExchange},
+                #{currentPrice},
+                #{createdDate}
+            )
+    </insert>
+    <update id="update" parameterType="org.example.stock.domain.Stock">
+        UPDATE
+            STOCK
+        <set>
+            <if test="stockId != null">
+                STOCK_ID = #{stockId},
+            </if>
+            <if test=" != null">
+                STOCK_NAME = #{stockName},
+            </if>
+            <if test=" != null">
+                STOCK_EXCHANGE = #{stockExchange}
+            </if>
+            <if test=" != null">
+                CURRENT_PRICE = #{currentPrice}
+            </if>
+            <if test=" != null">
+                CREATED_DATE = #{createdDate}
+            </if>
+        </set>
+        WHERE STOCK_ID = #{stockId}
+    </update>
+    <delete id="delete" parameterType="String">
+        DELETE FROM STOCK WHERE STOCK_ID = #{stockId}
+    </delete>
+</mapper>
