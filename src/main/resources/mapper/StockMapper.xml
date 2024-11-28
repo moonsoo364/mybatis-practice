@@ -11,7 +11,7 @@
    </resultMap>
 
     <select id="findById" parameterType="String" resultMap="StockResultMap">
-        SELECT * FROM STOCK WHERE ID = #{stockId}
+        SELECT * FROM STOCK WHERE STOCK_ID = #{stockId}
     </select>
 
     <select id="findAll" resultMap="StockResultMap">

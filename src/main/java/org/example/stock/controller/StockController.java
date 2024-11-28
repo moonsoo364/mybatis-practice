@@ -15,12 +15,12 @@ public class StockController {
         this.stockService = stockService;
     }
 
-    @GetMapping("/id")
-    public Stock findById(@PathVariable String id){
+    @GetMapping
+    public Stock findById(@RequestParam(required = true,name = "id") String id){
         return stockService.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Stock> findAll(){
         return stockService.findAll();
     }
